@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script>
+
+	function start(winId, callback) {
+		chrome.tabs.getAllInWindow(winId, function (tabs) {
+			var windowOutput = []
+			for(var tabIndex = 0; tabIndex < tabs.length; tabIndex++) {
+				windowOutput.push(tabs[tabIndex].url)
+			}
+			if(callback) {
+				callback(windowOutput)
+			}
+		});
+	}
+	
+	</script>
+  </head>
+</html>
+
+
